@@ -154,13 +154,13 @@ class PhoneBook:
         y = (screen_height / 2) - (height / 2)
         self.window.geometry("%dx%d+%d+%d" % (width, height, x, y))
         self.window.resizable(0, 0)
-        self.window.config(bg="#f6eee3")
+        self.window.config(bg="#d9e3f9")
         self.style = ttk.Style(self.window)
         self.style.theme_use("default")
         self.style.configure(
             "Treeview",
-            background="#ffccc6",
-            fieldbackground="#d3bded",
+            background="#ffe1e1",
+            fieldbackground="#d9e3f9",
             foreground="#000000",
         )
         self.style.configure(
@@ -170,9 +170,9 @@ class PhoneBook:
         self.titlelable = tk.Label(
             self.window,
             text="My PhoneBook",
-            font=("Arial", 17),
-            bg="#f6eee3",
-            fg="#14213d",
+            font=("Times New Roman", 25, "bold"),
+            bg="#d9e3f9",
+            fg="#8a9c60",
         )
         self.titlelable.pack(pady=20, padx=50, side=tk.TOP, anchor=tk.W)
 
@@ -180,7 +180,7 @@ class PhoneBook:
             self.window,
             text="Enter name or mobile",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.search_entry_text.place(x=300, y=10)
@@ -268,7 +268,7 @@ class PhoneBook:
 
     def edit_contact_gui(self, contact_data):
         self.clear(self.window)
-        self.window.config(bg="#f6eee3")
+        self.window.config(bg="#d9e3f9")
         self.window.title("Edit Contact")
 
         # variables
@@ -288,7 +288,7 @@ class PhoneBook:
             self.window,
             text="Edit Contact",
             font=("Arial", 18),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.TitleLabel.pack()
@@ -296,7 +296,7 @@ class PhoneBook:
             self.window,
             text="Name",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.E1 = tk.Entry(
@@ -310,7 +310,7 @@ class PhoneBook:
             self.window,
             text="Mobile",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.E2 = tk.Entry(
@@ -324,7 +324,7 @@ class PhoneBook:
             self.window,
             text="Work",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.E3 = tk.Entry(
@@ -338,7 +338,7 @@ class PhoneBook:
             self.window,
             text="Birthday (YYYY-MM-DD)",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.E4 = tk.Entry(
@@ -352,7 +352,7 @@ class PhoneBook:
             self.window,
             text="Email",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.E5 = tk.Entry(
@@ -366,7 +366,7 @@ class PhoneBook:
             self.window,
             text="Notes",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.E6 = tk.Text(
@@ -417,7 +417,7 @@ class PhoneBook:
 
     def add_new_contact_gui(self):
         self.clear(self.window)
-        self.window.config(bg="#f6eee3")
+        self.window.config(bg="#d9e3f9")
         self.window.title("New Contact")
 
         # variables
@@ -432,7 +432,7 @@ class PhoneBook:
             self.window,
             text="New Contact",
             font=("Arial", 18),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.TitleLabel.pack()
@@ -440,7 +440,7 @@ class PhoneBook:
             self.window,
             text="Name",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.L1.place(x=10, y=60)
@@ -456,7 +456,7 @@ class PhoneBook:
             self.window,
             text="Mobile",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.L2.place(x=10, y=100)
@@ -472,7 +472,7 @@ class PhoneBook:
             self.window,
             text="Work",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.L3.place(x=10, y=140)
@@ -488,7 +488,7 @@ class PhoneBook:
             self.window,
             text="Birthday (YYYY-MM-DD)",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.L4.place(x=10, y=180)
@@ -504,7 +504,7 @@ class PhoneBook:
             self.window,
             text="Email",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.L5.place(x=10, y=220)
@@ -520,7 +520,7 @@ class PhoneBook:
             self.window,
             text="Notes",
             font=("Arial", 10),
-            bg="#f6eee3",
+            bg="#d9e3f9",
             fg="#14213d",
         )
         self.L6.place(x=10, y=260)
