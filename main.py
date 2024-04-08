@@ -97,8 +97,25 @@ class PhoneBook:
         Returns:
         - bool: True if the format is valid, False otherwise
         """
+
+        if not birthday:
+            return True  # Return True if birthday is empty
+        
         pattern = r'^\d{4}-\d{2}-\d{2}$'
         return bool(re.match(pattern, birthday))
+    
+    def check_mobile_format(self, mobile):
+        """
+        Check if the provided mobile number matches the format of 10 digits.
+        
+        Parameters:
+        - mobile (str): The mobile number to validate
+        
+        Returns:
+        - bool: True if the format is valid, False otherwise
+        """
+        pattern = r'^\d{10}$'  # Matches exactly 10 digits
+        return bool(re.match(pattern, mobile))
 
 
     def init_call(self):
@@ -125,7 +142,7 @@ class PhoneBook:
                 "Please Complete The Required Fields",
                 icon="warning",
             )
-
+            
         if not self.check_birthday_format(Birthday):
             result = tkMessageBox.showwarning(
                 "Error : Invalid Birthday Format",
@@ -133,6 +150,22 @@ class PhoneBook:
                 icon="warning",
             )
             return
+            
+    
+
+        # Validate mobile number format
+        if not self.check_mobile_format(mobile):
+            result = tkMessageBox.showwarning(
+                "Error : Invalid Mobile Number Format",
+                "Please enter a valid 10-digit mobile number.",
+                icon="warning",
+            )
+            return
+
+        
+    
+
+    
         if (
             self.check_int(mobile) == False
             
@@ -165,7 +198,8 @@ class PhoneBook:
                     "A Contact Card with this Mobile Number Already Exists. Please Check.",
                     icon="warning",
                 )
-            
+
+
                 
 
     def main_page_gui(self):
