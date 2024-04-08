@@ -104,6 +104,22 @@ class PhoneBook:
         pattern = r'^\d{4}-\d{2}-\d{2}$'
         return bool(re.match(pattern, birthday))
     
+    def check_email_format(self, email):
+        """
+        Check if the provided email string matches the standard email format.
+        
+        Parameters:
+        - email (str): The email string to validate
+        
+        Returns:
+        - bool: True if the format is valid or if the email is empty, False otherwise
+        """
+        if not email:
+            return True  # Return True if email is empty
+        
+        pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        return bool(re.match(pattern, email))
+    
     def check_mobile_format(self, mobile):
         """
         Check if the provided mobile number matches the format of 10 digits.
@@ -158,6 +174,15 @@ class PhoneBook:
             result = tkMessageBox.showwarning(
                 "Error : Invalid Mobile Number Format",
                 "Please enter a valid 10-digit mobile number.",
+                icon="warning",
+            )
+            return
+
+        # Validate email format
+        if not self.check_email_format(email):
+            result = tkMessageBox.showwarning(
+                "Error : Invalid Email Format",
+                "Please enter a valid email address or leave it empty.",
                 icon="warning",
             )
             return
@@ -229,7 +254,7 @@ class PhoneBook:
             self.window,
             text="My PhoneBook",
             font=("Times New Roman", 35, "bold"),
-            bg="#d9e3f9",
+            bg="#F4F1DE",
             fg="#8a9c60",
         )
         self.titlelable.pack(pady=20, padx=50, side=tk.TOP, anchor=tk.W)
@@ -238,8 +263,8 @@ class PhoneBook:
             self.window,
             text="Enter name or mobile",
             font=("Arial", 15),
-            bg="#d9e3f9",
-            fg="#14213d",
+            bg="#F4F1DE",
+            fg="#E07A5F",
         )
         self.search_entry_text.place(x=300, y=10)
         self.search_entry = tk.Entry(self.window, width=50)
@@ -345,7 +370,7 @@ class PhoneBook:
         self.TitleLabel = tk.Label(
             self.window,
             text="Edit Contact",
-            font=("Arial", 18),
+            font=("Arial", 15),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -353,7 +378,7 @@ class PhoneBook:
         self.L1 = tk.Label(
             self.window,
             text="Name",
-            font=("Arial", 15),
+            font=("Arial", 13),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -367,7 +392,7 @@ class PhoneBook:
         self.L2 = tk.Label(
             self.window,
             text="Mobile",
-            font=("Arial", 15),
+            font=("Arial", 13),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -381,7 +406,7 @@ class PhoneBook:
         self.L3 = tk.Label(
             self.window,
             text="Work",
-            font=("Arial", 15),
+            font=("Arial", 13),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -395,7 +420,7 @@ class PhoneBook:
         self.L4 = tk.Label(
             self.window,
             text="Birthday (YYYY-MM-DD)",
-            font=("Arial", 15),
+            font=("Arial", 13),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -409,7 +434,7 @@ class PhoneBook:
         self.L5 = tk.Label(
             self.window,
             text="Email",
-            font=("Arial", 15),
+            font=("Arial", 13),
             bg="#d9e3f9",
             fg="#14213d",
         )
