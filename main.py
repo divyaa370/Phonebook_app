@@ -2,6 +2,7 @@ import sqlite3
 import tkinter as tk
 import tkinter.ttk as ttk
 import tkinter.messagebox as tkMessageBox
+import re
 
 
 class PhoneBook:
@@ -86,6 +87,19 @@ class PhoneBook:
             if ord(i) > 57 or ord(i) < 48:
                 return False
         return True
+    def check_birthday_format(self, birthday):
+        """
+        Check if the provided birthday string matches the format YYYY-MM-DD.
+        
+        Parameters:
+        - birthday (str): The birthday string to validate
+        
+        Returns:
+        - bool: True if the format is valid, False otherwise
+        """
+        pattern = r'^\d{4}-\d{2}-\d{2}$'
+        return bool(re.match(pattern, birthday))
+
 
     def init_call(self):
         self.__init__(self.window, self.con)
@@ -111,6 +125,14 @@ class PhoneBook:
                 "Please Complete The Required Fields",
                 icon="warning",
             )
+
+        if not self.check_birthday_format(Birthday):
+            result = tkMessageBox.showwarning(
+                "Error : Invalid Birthday Format",
+                "Please enter the birthday in the format YYYY-MM-DD.",
+                icon="warning",
+            )
+            return
         if (
             self.check_int(mobile) == False
             
@@ -143,6 +165,8 @@ class PhoneBook:
                     "A Contact Card with this Mobile Number Already Exists. Please Check.",
                     icon="warning",
                 )
+            
+                
 
     def main_page_gui(self):
         width = 1000
@@ -170,7 +194,7 @@ class PhoneBook:
         self.titlelable = tk.Label(
             self.window,
             text="My PhoneBook",
-            font=("Times New Roman", 25, "bold"),
+            font=("Times New Roman", 35, "bold"),
             bg="#d9e3f9",
             fg="#8a9c60",
         )
@@ -179,7 +203,7 @@ class PhoneBook:
         self.search_entry_text = tk.Label(
             self.window,
             text="Enter name or mobile",
-            font=("Arial", 10),
+            font=("Arial", 15),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -295,7 +319,7 @@ class PhoneBook:
         self.L1 = tk.Label(
             self.window,
             text="Name",
-            font=("Arial", 10),
+            font=("Arial", 15),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -309,7 +333,7 @@ class PhoneBook:
         self.L2 = tk.Label(
             self.window,
             text="Mobile",
-            font=("Arial", 10),
+            font=("Arial", 15),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -323,7 +347,7 @@ class PhoneBook:
         self.L3 = tk.Label(
             self.window,
             text="Work",
-            font=("Arial", 10),
+            font=("Arial", 15),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -337,7 +361,7 @@ class PhoneBook:
         self.L4 = tk.Label(
             self.window,
             text="Birthday (YYYY-MM-DD)",
-            font=("Arial", 10),
+            font=("Arial", 15),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -351,7 +375,7 @@ class PhoneBook:
         self.L5 = tk.Label(
             self.window,
             text="Email",
-            font=("Arial", 10),
+            font=("Arial", 15),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -365,7 +389,7 @@ class PhoneBook:
         self.L6 = tk.Label(
             self.window,
             text="Notes",
-            font=("Arial", 10),
+            font=("Arial", 15),
             bg="#d9e3f9",
             fg="#14213d",
         )
@@ -374,7 +398,7 @@ class PhoneBook:
             width=40,
             height=4,
             relief=tk.FLAT,
-            font=("Arial", 10),
+            font=("Arial", 15),
         )
         self.E6.insert(tk.END, contact_data[5])
 
@@ -414,6 +438,9 @@ class PhoneBook:
         self.E6.place(x=170, y=260)
         self.B1.place(x=240, y=380)
         self.B2.place(x=300, y=380)
+
+
+
 
     def add_new_contact_gui(self):
         self.clear(self.window)
