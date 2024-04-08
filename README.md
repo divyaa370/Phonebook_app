@@ -24,4 +24,4 @@ A simple PhoneBook application built using Python and Tkinter. The app allows us
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/divyaa370/PhoneBook_app.git
+git clone https://github.com/divyaa370/Phonebook_app.git
