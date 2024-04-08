@@ -454,7 +454,7 @@ class PhoneBook:
         self.E1.place(x=170, y=60)
         self.L2 = tk.Label(
             self.window,
-            text="Mobile Number",
+            text="Mobile",
             font=("Arial", 10),
             bg="#f6eee3",
             fg="#14213d",
